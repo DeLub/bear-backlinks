@@ -82,7 +82,7 @@ def update_note(uid, new_text):
     x_callback(x_command, new_text)
 
 def x_callback(x_command, md_text):
-    x_command_text = x_command + '&text=' + urllib.pathname2url(md_text)
+    x_command_text = x_command + '&text=' + urllib.quote(md_text.encode('utf8'))
     subprocess.call(["open", "-g", x_command_text])
     time.sleep(.2)
 
